@@ -6,26 +6,41 @@ git clone -b master https://github.com/nourelnaby4/OnlineCart
 
 # Command
 Run a command
-`ng update`
+```
+ng update
+```
  Check this u know the updates
 
-`ng update @angular/cli@17`
+```
+ng update @angular/cli@17
+```
 
 After running this cmd u get a error that dependency first update ng prime
-`npm uninstall primeng --force`
+```npm uninstall primeng --force
+```
 
 after install
-`npm install primeng --force`
+```
+npm install primeng --force
+```
 
 Then we update Angular CLI
-`ng update @angular/cli@17`
+```
+ng update @angular/cli@17
+```
 
-`ng update @angular/core@17`
+```
+ng update @angular/core@17
+```
 
-`ng update ngx-toastr`
+```
+ng update ngx-toastr
+```
 
 Angular 17 is a standalone,changed to control flow and remove the ng module
-`ng g @angular/core:control-flow`
+```
+ng g @angular/core:control-flow
+```
  Follow this flow
 
 ? Which path in your project should be migrated? .
@@ -33,19 +48,24 @@ Angular 17 is a standalone,changed to control flow and remove the ng module
 
 Control flow is changed
 
-`ng g @angular/core:standalone`
+```ng g @angular/core:standalone
+```
 
 ? Choose the type of migration: Convert all components, directives and pipes to standalone
 ? Which path in your project should be migrated? .
 
 Except App component all are standalone u can check in others components.ts file
 
-`ng g @angular/core:standalone`
+```
+ng g @angular/core:standalone
+```
 
 ? Choose the type of migration: Remove unnecessary NgModule classes
 ? Which path in your project should be migrated? .
 
-`ng g @angular/core:standalone`
+```
+ng g @angular/core:standalone
+```
 ? Choose the type of migration: Bootstrap the application using standalone APIs
 ? Which path in your project should be migrated? .
 
