@@ -1,0 +1,170 @@
+<section class="container">
+  <h1>Register:</h1>
+
+  @if (ErrorMessage) {
+    <div class="alert alert-danger">
+      <p>{{ErrorMessage}}</p>
+    </div>
+  }
+
+  <form (ngSubmit)="registerSubmit(registerForm)" [formGroup]="registerForm">
+    <div class="mb-3">
+      <label for="name">name</label>
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        id="name"
+        />
+      @if (
+        registerForm.get('name')?.errors && registerForm.get('name')?.touched
+        ) {
+        <div
+          class="alert alert-danger m-0"
+          >
+          @if (registerForm.get('name')?.getError('required')) {
+            <p>
+              name is required
+            </p>
+          }
+          @if (registerForm.get('name')?.getError('minlength')) {
+            <p>
+              name min lenght is 3
+            </p>
+          }
+          @if (registerForm.get('name')?.getError('maxlength')) {
+            <p>
+              name max lenght is 14
+            </p>
+          }
+        </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="email">email</label>
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+        />
+      @if (
+        registerForm.get('email')?.errors &&
+        registerForm.get('email')?.touched
+        ) {
+        <div
+          class="alert alert-danger m-0"
+          >
+          @if (registerForm.get('email')?.getError('required')) {
+            <p>
+              email is required
+            </p>
+          }
+          @if (registerForm.get('email')?.getError('email')) {
+            <p>
+              email format is incorrect
+            </p>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="password">password</label>
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        id="password"
+        />
+      @if (
+        registerForm.get('password')?.errors &&
+        registerForm.get('password')?.touched
+        ) {
+        <div
+          class="alert alert-danger m-0"
+          >
+          @if (registerForm.get('password')?.getError('required')) {
+            <p>
+              password is required
+            </p>
+          }
+          @if (registerForm.get('password')?.getError('minlength')) {
+            <p>
+              password min lenght is 3
+            </p>
+          }
+          @if (registerForm.get('password')?.getError('maxlength')) {
+            <p>
+              password max lenght is 14
+            </p>
+          }
+        </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="rePassword">rePassword</label>
+      <input
+        formControlName="rePassword"
+        type="password"
+        class="form-control"
+        id="rePassword"
+        />
+      @if (
+        registerForm.get('rePassword')?.errors &&
+        registerForm.get('rePassword')?.touched
+        ) {
+        <div
+          class="alert alert-danger m-0"
+          >
+          @if (registerForm.get('rePassword')?.getError('required')) {
+            <p>
+              rePassword is required
+            </p>
+          }
+          @if (registerForm.get('rePassword')?.getError('passwordMismatch')) {
+            <p>
+              rePassword is misMatch
+            </p>
+          }
+        </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="phone">phone</label>
+      <input
+        formControlName="phone"
+        type="text"
+        class="form-control"
+        id="phone"
+        />
+      @if (
+        registerForm.get('phone')?.errors &&
+        registerForm.get('phone')?.touched
+        ) {
+        <div
+          class="alert alert-danger m-0"
+          >
+          @if (registerForm.get('phone')?.getError('required')) {
+            <p>
+              phone is required
+            </p>
+          }
+          @if (registerForm.get('phone')?.getError('pattern')) {
+            <p>
+              phone format is incorrect
+            </p>
+          }
+        </div>
+      }
+    </div>
+    @if (!isLoading) {
+      <button [disabled]="!registerForm.valid" class="btn d-block bg-main ms-auto text-white border-0">submit</button>
+    }
+    @if (isLoading) {
+      <button class="btn d-block bg-main ms-auto text-white border-0" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      </button>
+    }
+  </form>
+</section>

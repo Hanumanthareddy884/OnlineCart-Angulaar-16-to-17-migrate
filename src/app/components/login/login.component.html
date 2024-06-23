@@ -1,0 +1,47 @@
+<section class="container">
+  <h1>Login:</h1>
+  @if (ErrorMessage) {
+    <div class="alert alert-danger">
+      <p>{{ErrorMessage}}</p>
+    </div>
+  }
+  <form [formGroup]="loginForm" (ngSubmit)="submitlogin(loginForm)">
+    <div class="mb-3">
+      <label for="name">email</label>
+      <input id="email" formControlName="email" class="form-control" />
+      @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+        <div class="alert alert-danger">
+          @if (loginForm.get('email')?.getError('required')) {
+            <p>email is required</p>
+          }
+          @if (loginForm.get('email')?.getError('email')) {
+            <p>email validation is mistake</p>
+          }
+        </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="password">password</label>
+      <input type="password" id="password" formControlName="password" class="form-control" />
+      @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+        <div class="alert alert-danger">
+          @if (loginForm.get('password')?.getError('required')) {
+            <p>password is required</p>
+          }
+        </div>
+      }
+    </div>
+
+    @if (!isLoading) {
+      <button [disabled]="!loginForm.valid" class="btn d-block bg-main ms-auto text-white border-0">submit</button>
+    }
+    @if (isLoading) {
+      <button class="btn d-block bg-main ms-auto text-white border-0" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      </button>
+    }
+
+  </form>
+</section>
+
+<a class="m-3 p-2" routerLink="/register" style="text-decoration: underline; color: rgb(73, 73, 241);">Create a new account?</a>
