@@ -16,7 +16,8 @@ ng update @angular/cli@17
 ```
 
 After running this cmd u get a error that dependency first update ng prime
-```npm uninstall primeng --force
+```
+npm uninstall primeng --force
 ```
 
 after install
@@ -48,7 +49,8 @@ ng g @angular/core:control-flow
 
 Control flow is changed
 
-```ng g @angular/core:standalone
+```
+ng g @angular/core:standalone
 ```
 
 ? Choose the type of migration: Convert all components, directives and pipes to standalone
