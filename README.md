@@ -1,5 +1,8 @@
 # Angular 16 to 17 Migrate standalone , remove ng module
-Angular 16 ecommerce clone `git clone -b master https://github.com/nourelnaby4/OnlineCart`
+Angular 16 ecommerce clone
+```
+git clone -b master https://github.com/nourelnaby4/OnlineCart
+```
 
 # Command
 Run a command
